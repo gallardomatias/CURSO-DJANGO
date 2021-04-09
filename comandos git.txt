@@ -1,0 +1,12 @@
+git remote add origin https://github.com/gallardomatias/CURSO-DJANGO.git
+git commit –m “El mensaje que acompaña al commit va aquí”  ##git commit creará una instantánea de los cambios y la guardará en el directorio git.
+git branch -M main
+git push -u origin main
+
+
+git push  origin <master>  ##Reemplaza <master> con la rama en la que quieres enviar los cambios cuando no quieras enviarlos a la rama maestra.
+
+command git checkout -b <branch-name> ##git checkout crea ramas y te ayuda a navegar entre ellas. Por ejemplo, el siguiente comando crea una nueva y automáticamente se cambia a ella:
+
+
+git checkout <branch-name>  ## Para cambiar de una rama a otra, sólo usa:
