@@ -9,8 +9,8 @@
     {% load static %}
 
     {% block css %}
-
     {% endblock %}
+
     <link rel="stylesheet" href="{% static 'app/css/estilos.css' %}">
     
 </head>
@@ -64,15 +64,16 @@
         </div>
     </footer>
 
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-    <script src="js/menu.js"></script>
-
-
+    <script src="{% static 'app/js/menu.js' %}"></script>
 
     {% block js %}
 
     {% endblock %}
+
+
 
 </body>
 </html>

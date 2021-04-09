@@ -1,10 +1,8 @@
 {% extends 'app/base.html' %}
+{% load static %}
 
-{% load static  %}
-
-{% block js %}
+{% block js  %}
 <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-
 <script>
     $(document).ready(function() {
       $('.slider').bxSlider({
@@ -21,7 +19,6 @@
 {% endblock %}
 
 {% block contenido %}
-
 <div class="slider">
     <div>
         <img src="{% static 'app/img/banner/banner1.png' %}" alt="">
@@ -34,44 +31,25 @@
     </div>
 </div>
 
-<h2>Productos</h2>
+
+{% load humanize %}
+<h2>PRODUCTOS </h2>
 <div class="productos">
-
-<div class="producto">
-
-    <div class="contenedor_producto">
-
-        <img src="{% static 'app/img/lenovo_tablet.jpeg' %}" alt="imagen producto">
-        <div class="detalle">
-            <h5>Lenovo</h5>
-            <h2>Tablet</h2>
-            <h3>$120.000</h3>
-        </div>
-
-    </div>
-
-</div>
-
-<div class="producto">
-
-
     {% for p in productos %}
-    <div class="contenedor_producto">
-
-        <img src="{% static 'app/img/macbook.jpeg' %}" alt="imagen producto">
-        <div class="detalle">
-            <h5>apple</h5>
-            <h2>Macbook</h2>
-            <h3>$1.500.000</h3>
-        </div>
-
-    </div>
+    <div class="producto">
+        <div class="contenedor_producto">
+            {% if p.imagen %}
+            <img src="{{ p.imagen.url }}" alt="imagen producto">
+            {% endif %}
     
-    {% endfor%}
-
+            <div class="detalle">
+                <h5>{{ p.marca | capfirst }}</h5>
+                <h2>{{ p.nombre | title }}</h2>
+                <h3>${{ p.precio | intcomma }}</h3>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 </div>
-
-</div>
-
-
 {% endblock %}
+
